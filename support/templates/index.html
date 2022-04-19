@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %} 고객센터 {% endblock %}
+
+{% block content %}
+
+    <h1>고객 센터</h1>
+    <p>Basic Mission</p>
+    <ul>        
+        <li><a href="{% url 'support:normal' %}">일반</a></li>
+        <li><a href="{% url 'support:account' %}">계정</a></li>
+        <li><a href="{% url 'support:etc' %}">기타</a></li>
+    </ul>
+    
+{% endblock %}

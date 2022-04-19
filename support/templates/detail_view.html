@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %} 상세보기 {% endblock %}
+
+{% block content %}
+<h1>{{detail.question}}</h1>
+
+<hr>
+<br>
+<h3>답변 내용</h3>
+<p>{{detail.answer}}</p>
+<br><hr>
+<ul>
+    <li>최초 생성자 : {{detail.created_person}}<br></li>
+    <li>최초 생성일자 : {{detail.created_time}} <br><br></li>
+    <li>최종 수정자 : {{detail.last_modify_person}}<br></li>
+    <li>최종 수정일자 : {{detail.last_modified_time}}<br></li>
+</ul>
+<hr><br>
+<ul>
+    <a href="{% url 'index' %}">처음으로 돌아가기</a>
+    <!-- template 태그 사용, Template Engine 사용-->
+    <!-- 동적 변환 -->
+</ul>
+
+{% endblock %}
