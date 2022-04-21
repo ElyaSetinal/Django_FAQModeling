@@ -19,5 +19,6 @@ class AnswerInline(admin.StackedInline):
 @admin.register(Inquiry)
 class Inqmodeladmin(admin.ModelAdmin):
     list_display = ('id', 'category', 'title', 'writer', 'emailAddress', 'email_allow','phonenumber','sms_allow', 'created_time',)
+    #이메일, 이메일 허용, 전화번호, 문자허용 추가.
     list_p_page = 20
     inlines = [AnswerInline]
