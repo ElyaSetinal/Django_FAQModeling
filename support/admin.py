@@ -18,6 +18,6 @@ class AnswerInline(admin.StackedInline):
 
 @admin.register(Inquiry)
 class Inqmodeladmin(admin.ModelAdmin):
-    list_display = ('id', 'category', 'title', 'writer', 'created_time',)
+    list_display = ('id', 'category', 'title', 'writer', 'emailAddress', 'email_allow','phonenumber','sms_allow', 'created_time',)
     list_p_page = 20
     inlines = [AnswerInline]
