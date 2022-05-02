@@ -38,7 +38,7 @@ class Inqmodeladmin(admin.ModelAdmin):
         for item in queryset:
             if item.answerstate == 'RC': # 답변이 완료되어야 작업 시행
                 if item.email_allow == 1: print(f"{item.writer}-{item.title}의 E-mail 답변이 발송되었습니다.") # 이메일 허용 여부 확인
-                else: print(f"{item.title}의 작성자가 E-mail을 허용하지 않았습니다.")
+                else: print(f"{item.writer}-{item.title}의 작성자가 E-mail을 허용하지 않았습니다.")
                 
                 if item.sms_allow == 1: print(f"{item.writer}-{item.title}의 SMS 답변이 발송되었습니다.") # SMS 허용 여부 확인
                 else: print(f"{item.writer}-{item.title}의 작성자가 SMS을 허용하지 않았습니다.")
