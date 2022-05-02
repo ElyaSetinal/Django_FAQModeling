@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %} 자주 묻는 질문 - 일반 {% endblock %}
+
+{% block content %}
+
+<h1>일반 : 자주 묻는 질문</h1>
+{% for object in object_list %}
+{% if object.category == "NM" %}
+<br><a href="{% url 'support:detail' object.id %}">{{ object.question }}</a>
+{% endif %}
+{% endfor %}
+<ul>
+    <li><a href="{% url 'index' %}">돌아가기</a></li>
+    <!-- template 태그 사용, Template Engine 사용-->
+    <!-- 동적 변환 -->
+</ul>
+
+{% endblock %}
