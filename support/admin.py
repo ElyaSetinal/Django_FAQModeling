@@ -25,7 +25,7 @@ class Inqmodeladmin(admin.ModelAdmin):
     #Advenced를 위해 answerstate 추가
     search_fields = ('title', 'emailAddress', 'phonenumber', 'writer__username',) # 검색 필드
     #Advenced를 위해 writer__username을 추가
-    #ForeignKey를 가지는 항목은, ['foreign_key__related_fieldname']으로 추가해야한다. - 공식문서 참조
+    #ForeignKey를 가지는 항목은, ['foreign_key__related_fieldname']으로 추가해야한다.
     search_help_text = '질문 제목, 이메일, 전화번호, 작성자 검색' # 검색 필드 도움말
     list_filter = ('category', 'answerstate',) # 필터 필드
     inlines = [AnswerInline] # 인라인 모델
