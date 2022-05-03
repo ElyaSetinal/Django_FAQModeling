@@ -22,10 +22,10 @@ class Faq(models.Model):
     category = models.CharField(max_length=2, choices = CATEGORY_CHOICES, verbose_name='카테고리', null=True, blank=True)
     # 공식문서 참조, choices를 사용하기 위해 class 최상단에 변수명 선언 및 tuple 사용
     answer = models.TextField(verbose_name='답변', null=True, blank=True)
-    created_person = models.ForeignKey(to=User, related_name='faq_cp_user', on_delete=models.CASCADE, verbose_name='생성자', null=True, blank=True)
+    created_person = models.ForeignKey(to=User, related_name='faq_cp_users', on_delete=models.CASCADE, verbose_name='생성자', null=True, blank=True)
     # 역방향 관계 방지를 위해서 related_name 추가, related_name은 같은 class나 다른 class에 중복되면 안된다.
     created_time = models.DateTimeField(verbose_name='생성일시', auto_now_add=True)
-    last_modify_person = models.ForeignKey(to=User, related_name='faq_lmp_user', on_delete=models.CASCADE, verbose_name='최종 수정자', null=True, blank=True)
+    last_modify_person = models.ForeignKey(to=User, related_name='faq_lmp_users', on_delete=models.CASCADE, verbose_name='최종 수정자', null=True, blank=True)
     last_modified_time = models.DateTimeField(verbose_name='최종 수정일시', auto_now=True) #공식문서 참조, auto_now는 update에 유용한 옵션
 
 #Advenced
@@ -68,8 +68,8 @@ class Answer(models.Model):
     answer=models.TextField(verbose_name='답변내용')
     post = models.ForeignKey(to='Inquiry', on_delete=models.CASCADE)
 
-    created_person = models.ForeignKey(to=User, related_name='answer_cp_user', on_delete=models.CASCADE, verbose_name='생성자', null=True, blank=True)
+    created_person = models.ForeignKey(to=User, related_name='answer_cp_users', on_delete=models.CASCADE, verbose_name='생성자', null=True, blank=True)
     created_time = models.DateTimeField(verbose_name='생성일시', auto_now_add=True)
 
-    last_modify_person = models.ForeignKey(to=User, related_name='answer_lmp_user', on_delete=models.CASCADE, verbose_name='최종 수정자', null=True, blank=True)
+    last_modify_person = models.ForeignKey(to=User, related_name='answer_lmp_users', on_delete=models.CASCADE, verbose_name='최종 수정자', null=True, blank=True)
     last_modified_time = models.DateTimeField(verbose_name='최종 수정일시', auto_now=True) #공식문서 참조, auto_now는 update에 유용한 옵션
